@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .todo-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .todo-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .todo-form input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .todo-form button {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .todo-form button:hover {
+            background: #218838;
+        }
+
+        .todo-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .todo-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(-10px);
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .todo-list li button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .todo-list li button:hover {
+            background: #c82333;
+        }
+
+        .todo-list li .done-button {
+            background: #007bff;
+            margin-right: 10px;
+        }
+
+        .todo-list li .done-button:hover {
+            background: #0056b3;
+        }
+
+        .todo-list li.done {
+            text-decoration: line-through;
+            color: #6c757d;
+            background-color: #d4edda; 
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do App</h1>
+        <form class="todo-form" id="todo-form">
+            <input type="text" id="todo-input" placeholder="Add a new task...">
+            <button type="submit">Add</button>
+        </form>
+        <ul class="todo-list" id="todo-list"></ul>
+    </div>
+
+    <script>
+        const todoForm = document.getElementById('todo-form');
+        const todoInput = document.getElementById('todo-input');
+        const todoList = document.getElementById('todo-list');
+
+        // Handle form submission
+        todoForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const task = todoInput.value.trim();
+
+            if (task) {
+                addTask(task);
+                todoInput.value = '';
+            }
+        });
+
+        // Add a task to the list
+        function addTask(task) {
+            const li = document.createElement('li');
+            li.textContent = task;
+
+            const doneButton = document.createElement('button');
+            doneButton.textContent = 'Done';
+            doneButton.classList.add('done-button');
+            doneButton.addEventListener('click', () => {
+                li.classList.toggle('done');
+            });
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', () => {
+                li.style.animation = 'fadeOut 0.3s forwards';
+                li.addEventListener('animationend', () => li.remove());
+            });
+
+            li.prepend(doneButton);
+            li.appendChild(deleteButton);
+            todoList.appendChild(li);
+        }
+    </script>
+</body>
+</html>
