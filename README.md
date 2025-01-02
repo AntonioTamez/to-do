@@ -51,9 +51,7 @@ project-folder/
 ## Live preview
 
 ### Main Interface
-![Main Interface Screenshot](https://antoniotamez.github.io/to-do)
-
-
+[Demo](https://antoniotamez.github.io/to-do)
  
 
 ---
