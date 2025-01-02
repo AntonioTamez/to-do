@@ -5,6 +5,13 @@ This project is a **To-Do Application** built using HTML, CSS, and vanilla JavaS
 
 ---
 
+## Live preview
+
+### Main Interface
+[Demo](https://antoniotamez.github.io/to-do)
+ 
+---
+
 ## Features
 
 ### Add Tasks
@@ -45,14 +52,6 @@ project-folder/
 |-- style.css       // Inline in index.html (used for styling)
 |-- script.js       // Inline in index.html (handles interactivity)
 ```
-
----
-
-## Live preview
-
-### Main Interface
-[Demo](https://antoniotamez.github.io/to-do)
- 
 
 ---
 
