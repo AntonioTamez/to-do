@@ -51,7 +51,7 @@ project-folder/
 ## Live preview
 
 ### Main Interface
-![Main Interface Screenshot](https://via.placeholder.com/400x300.png?text=To-Do+App+Main+Screen)
+![Main Interface Screenshot](https://antoniotamez.github.io/to-do)
 
 
  
