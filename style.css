@@ -1,0 +1,161 @@
+        :root {
+            --primary-color: #28a745;
+            --secondary-color: #007bff;
+            --danger-color: #dc3545;
+            --background-light: #f4f4f4;
+            --background-dark: #2c2c2c;
+            --text-light: #f4f4f4;
+            --text-dark: #333;
+            --container-light: #fff;
+            --container-dark: #3a3a3a;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+        }
+
+        .todo-container {
+            background: var(--container-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode .todo-container {
+            background: var(--container-dark);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .todo-form,
+        .filter-container {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .todo-form input,
+        .filter-container input,
+        .filter-container select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .todo-form button,
+        .filter-container button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .todo-form button:hover,
+        .filter-container button:hover {
+            background-color: darkgreen;
+        }
+
+        .todo-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .todo-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--background-light);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .todo-list li .button-group {
+            display: flex;
+            gap: 10px;
+            /* Espaciado entre los botones */
+        }
+
+        body.dark-mode .todo-list li {
+            background: var(--background-dark);
+        }
+
+        .todo-list li:hover {
+            transform: scale(1.02);
+        }
+
+        .todo-list li.done {
+            text-decoration: line-through;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        .todo-list button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .done-button {
+            background: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        .done-button:hover {
+            background: darkblue;
+        }
+
+        .delete-button {
+            background: var(--danger-color);
+            color: var(--text-light);
+        }
+
+        .delete-button:hover {
+            background: darkred;
+        }
+
+        #toggle-dark-mode {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode #toggle-dark-mode {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+        }
